@@ -18,6 +18,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.highlight_off),onPressed: (){
+          homeController.logOff();
+        },),
         title: Text("Home"),
       ),
       body: Observer(

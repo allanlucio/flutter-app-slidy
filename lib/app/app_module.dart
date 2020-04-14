@@ -1,4 +1,7 @@
 import 'package:flutter_app_slidy/app/modules/login/login_module.dart';
+import 'package:flutter_app_slidy/app/modules/shared/auth_controller.dart';
+import 'package:flutter_app_slidy/app/modules/shared/repositories/auth_repository.dart';
+import 'package:flutter_app_slidy/app/modules/shared/repositories/auth_repository_interface.dart';
 import 'package:flutter_app_slidy/app/pages/splash/splash_controller.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_app_slidy/app/app_controller.dart';
@@ -15,12 +18,14 @@ class AppModule extends MainModule {
         Bind((i) => SplashController()),
         Bind((i) => AppController()),
         Bind((i) => Dio(BaseOptions(baseUrl: URL_BASE))),
+        Bind<IAuthRepository>((i)=> AuthRepository()),
+        Bind((i)=> AuthController()),
       ];
 
   @override
   List<Router> get routers => [
         Router('/', child: (_,args) => SplashPage()),
-        Router('/login', module: LoginModule()),
+        Router('/login', module: LoginModule(), transition: TransitionType.noTransition),
         Router('/home', module: HomeModule()),
       ];
 

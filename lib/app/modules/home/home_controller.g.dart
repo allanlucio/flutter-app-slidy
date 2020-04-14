@@ -26,6 +26,13 @@ mixin _$HomeController on _HomeController, Store {
     }, _$pokemonsAtom, name: '${_$pokemonsAtom.name}_set');
   }
 
+  final _$logOffAsyncAction = AsyncAction('logOff');
+
+  @override
+  Future logOff() {
+    return _$logOffAsyncAction.run(() => super.logOff());
+  }
+
   final _$_HomeControllerActionController =
       ActionController(name: '_HomeController');
 

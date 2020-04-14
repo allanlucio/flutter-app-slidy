@@ -23,6 +23,9 @@ dependencies:
   flutter_mobx: ^1.1.0
   mobx: ^1.1.1
   flutter_modular: ^1.1.2
+  firebase_auth: ^0.16.0
+  google_sign_in: ^4.4.1
+
   flutter:
     sdk: flutter
 
